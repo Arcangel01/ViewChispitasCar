@@ -1,0 +1,49 @@
+
+<div class="container p-4">
+    <div class="jumbotron">
+        <h1 class="display-4">Bienvenido a Chispitas Car</h1>
+        <p class="lead"></p>
+        <hr class="my-4">
+        <p>Aquí puedes registrar todos los vehiculos que hacen parte de la compañia Chispitas Car!</p>
+        <a class="btn btn-primary btn-lg m-4" href="#MyCollapse" data-toggle="collapse" role="button">Agregar Vehiculos</a>
+        <div class="collapse" id="MyCollapse">
+
+               <form [formGroup]="formulario" (ngSubmit)="register(formulario.value)">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label>Marca</label>
+                        <select name="marca" formControlName="id_MARCA" class="form-control" [ngModel]="vehiculos.id_MARCA" required>
+                            <option *ngFor="let marca of marcas" value="{{marca.iD_MARCA}}"
+                                     (click)="obtMarcar(marca.iD_MARCA)">{{marca.nombrE_MARCA}}</option>
+                        </select>
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label>Modelo</label>
+                        <select formControlName="id_MODELO" class="form-control" name="modelo" [ngModel]="vehiculos.id_MODELO" required>
+                            <option *ngFor="let modelo of modelos" value="{{modelo.iD_MODELO}}"
+                                    > {{modelo.nombrE_MODELO}}</option>
+                        </select>
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label>Placa</label>
+                        <input class="form-control" type="text" formControlName="pLACA" name="placa" [ngModel]="vehiculos.pLACA" maxlength="6" required>
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label>Ciudad</label>
+                        <select name="ciudad" formControlName="id_CIUDAD" class="form-control" [ngModel]="vehiculos.id_CIUDAD" required>
+                            <option selected>Seleccione la ciudad</option>
+                            <option *ngFor="let ciudad of ciudades" value="{{ciudad.iD_CIUDAD}}" >{{ciudad.nombrE_CIUDAD}}</option>
+                        </select>
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label>N° Puertas</label>
+                        <input class="form-control" formControlName="pUERTAS" type="number" name="puertas" [ngModel]="vehiculos.pUERTAS" required>
+                      </div>
+                      <div class="form-group col-md-12">
+                        <button type="submit" [disabled]="formulario.invalid"  class="btn btn-success btn-lg">Registrar</button>
+                      </div> 
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

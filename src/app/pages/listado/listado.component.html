@@ -1,0 +1,31 @@
+<div class="container table-responsive-sm table-wrapper-scroll-y my-custom-scrollbar" *ngIf="detalles" >
+    <table
+     class="table table-bordered table-striped table-sm mb-0 table-dark container p-4">
+        <thead>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Placa</th>
+            <th>Ciudad</th>
+            <th>Puertas</th>
+            <th>Fecha</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of detalles" >
+                <td>{{data.marca}}</td>
+                <td>{{data.modelo}}</td>
+                <td>{{data.placa}}</td>
+                <td>{{data.ciudad}}</td>
+                <td>{{data.puertas}}</td>
+                <td>{{data.fecha | date:'dd/MM/yyyy'}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="container" *ngIf="!detalles" >
+    <div class="form-group">
+        <h1 class="display-4">Ups parece que no hay registros!</h1>
+        <img src="../../../assets/construccion.jpeg" width="70%" height="380px" alt="">
+    </div>
+</div>
+
+
